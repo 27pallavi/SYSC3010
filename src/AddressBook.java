@@ -7,11 +7,13 @@ public class AddressBook {
 		AddressBook book=new AddressBook();
 		BuddyInfo b=new BuddyInfo();
 		b.setName("homer");
+		b.setAddress("Sunnyside");
+		b.setNumber(613);
 		BuddyInfo b1=new BuddyInfo();
 		b1.setName("ted");
 		book.addBuddy(b);
 		book.addBuddy(b1);
-		book.removeBuddy(b1);
+		book.removeBuddy(b);
 		System.out.println("Address Book");
 	}
 		
