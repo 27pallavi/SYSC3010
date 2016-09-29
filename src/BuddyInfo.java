@@ -46,4 +46,8 @@ public class BuddyInfo {
 		this.number = number;
 	}
 
+	public void print()
+	{
+		System.out.println("new method for the test");
+	}
 }
