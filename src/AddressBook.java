@@ -28,4 +28,9 @@ public class AddressBook {
 		addressBook.addBuddy(buddy);
 		addressBook.removeBuddy(0);
 	}
+	
+	public void print()
+	{
+		System.out.println("new method for the new branch?");
+	}
 }
