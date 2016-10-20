@@ -3,7 +3,7 @@ import java.util.List;
 
 public class AddressBook {
 	
-	private List<BuddyInfo> buddyInfo;
+	public  List<BuddyInfo> buddyInfo;
 	
 	public AddressBook(){
 		this.buddyInfo=new ArrayList<BuddyInfo>();

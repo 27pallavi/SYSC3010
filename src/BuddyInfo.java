@@ -50,4 +50,8 @@ public class BuddyInfo {
 	{
 		System.out.println("new method for the test");
 	}
+	public String toString(){
+		String s= name+" "+address+" "+number;
+		return s;
+	}
 }
