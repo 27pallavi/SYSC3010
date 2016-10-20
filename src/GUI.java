@@ -11,6 +11,8 @@ public class GUI extends JFrame implements ActionListener {
 	JMenu budInfo;
 	AddressBook addressBook;
 	BuddyInfo bInfo;
+	JTextArea text;
+	JList list;
 	public GUI(){
 		frame= new JFrame("Address Book");
 		frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -36,7 +38,7 @@ public class GUI extends JFrame implements ActionListener {
 		
 		budInfo=new JMenu("Buddy Info");
 		menu.add(budInfo);
-		frame.setVisible(true);
+		
 		
 		JMenuItem remove=new JMenuItem("Remove");			//remove
 		remove.addActionListener(this);
@@ -45,6 +47,11 @@ public class GUI extends JFrame implements ActionListener {
 		JMenuItem edit=new JMenuItem("Edit");				//edit
 		edit.addActionListener(this);
 		budInfo.add(edit);
+		
+		text=new JTextArea(50,50);
+		text.setEditable(false);
+		frame.add(text);
+		frame.setVisible(true);
 	}
 	
 	public static void main(String args[])throws IOException{
@@ -55,17 +62,21 @@ public class GUI extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		BuddyInfo buddy=new BuddyInfo("Tom", "Carleton", 1234);
+		AddressBook addressBook=new AddressBook();
+		addressBook.addBuddy(buddy);
 		
 		if(e.getActionCommand().equals("Create")){
 			addressBook=new AddressBook();
 		}
+		
 		else if(e.getActionCommand().equals("Save")){
 			
 			for(BuddyInfo b: addressBook.buddyInfo)
 			{
 				BufferedWriter out;
 				try {
-					out = new BufferedWriter(new FileWriter("myFile.txt"));
+					out = new BufferedWriter(new FileWriter("buddyInfo.txt"));
 					out.write(b.toString());
 					out.close();
 				} catch (IOException e1) {
@@ -73,10 +84,21 @@ public class GUI extends JFrame implements ActionListener {
 				}
 			}
 		}
+		
 		else if(e.getActionCommand().equals("Display")){
+			for(BuddyInfo b: addressBook.buddyInfo){
+				text.append(b.toString());
+			}
+		}
+		
+		else if(e.getActionCommand().equals("Remove")){
 			
 		}
+		
+		else if(e.getActionCommand().equals("Edit")){
 			
+		}
+		
 	}
 	
 	
